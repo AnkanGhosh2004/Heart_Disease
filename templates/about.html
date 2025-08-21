@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CardioSense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="CardioSense Logo" class="logo">
+            <span class="brand">CardioSense</span>
+        </div>
+        <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="navbar-right" id="navbar-menu">
+            <a href="/" ><i class="fa-solid fa-house-medical nav-link-icon"></i> Home</a>
+            <a href="/about" class="active"><i class="fa-solid fa-user-doctor nav-link-icon"></i> About</a>
+            <a href="/contact"><i class="fa-solid fa-message nav-link-icon"></i> Contact</a>
+        </div>
+    </nav>
+    <script>
+    // Hamburger menu toggle
+    const toggle = document.getElementById('navbar-toggle');
+    const menu = document.getElementById('navbar-menu');
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        toggle.classList.toggle('open');
+    });
+    </script>
+    </nav>
+    <main>
+        <div class="form-container">
+            <h2>About CardioSense</h2>
+            <p>This is a placeholder for the About page. Content will be added soon.</p>
+        </div>
+    </main>
+</body>
+</html>

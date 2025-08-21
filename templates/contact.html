@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CardioSense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="CardioSense Logo" class="logo">
+            <span class="brand">CardioSense</span>
+        </div>
+        <button class="navbar-toggle" id="navbar-toggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <div class="navbar-right" id="navbar-menu">
+            <a href="/" ><i class="fa-solid fa-house-medical nav-link-icon"></i> Home</a>
+            <a href="/about"><i class="fa-solid fa-user-doctor nav-link-icon"></i> About</a>
+            <a href="/contact" class="active"><i class="fa-solid fa-message nav-link-icon"></i> Contact</a>
+        </div>
+    </nav>
+    <script>
+    // Hamburger menu toggle
+    const toggle = document.getElementById('navbar-toggle');
+    const menu = document.getElementById('navbar-menu');
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+        toggle.classList.toggle('open');
+    });
+    </script>
+    </nav>
+    <main>
+        <div class="contact-ref-container">
+            <div class="contact-ref-header">
+                <div class="contact-ref-header-row">
+                    <i class="fa-solid fa-envelope contact-ref-header-icon"></i>
+                    <h1>Contact Us</h1>
+                </div>
+                <p class="contact-ref-subtitle">Get in touch with us for questions, feedback, or collaboration opportunities.</p>
+            </div>
+            <div class="contact-ref-content">
+                <div class="contact-ref-form-section">
+                    <h2><i class="fa-solid fa-paper-plane"></i> Send Message</h2>
+                    <form class="contact-ref-form">
+                        <div class="contact-ref-form-row">
+                            <input type="text" placeholder="First Name" required>
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                        <input type="email" placeholder="Your Email Address" required>
+                        <input type="text" placeholder="Subject" required>
+                        <textarea placeholder="Your message here..." rows="4" required></textarea>
+                        <button type="submit" class="contact-ref-send-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-ref-side">
+                    <div class="contact-ref-socials">
+                        <a href="#" class="ref-social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="ref-social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="ref-social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                    <div class="contact-ref-disclaimer">
+                        <div class="disclaimer-title"><i class="fa-solid fa-triangle-exclamation"></i> Important Medical Disclaimer</div>
+                        <div class="disclaimer-body">
+                            <b>This AI tool is designed for educational and informational purposes only.</b> While our advanced machine learning algorithms provide highly accurate risk assessments based on established medical research, this system should never replace professional medical consultation, diagnosis, or treatment.
+                            <ul>
+                                <li><b>Always consult professionals</b> for medical advice, diagnosis, and treatment decisions</li>
+                                <li><b>Use results as supplementary information</b> to discuss with your doctor, not as definitive medical advice</li>
+                                <li><b>Emergency situations require immediate medical attention</b> - do not rely on this tool for urgent health concerns</li>
+                                <li><b>Individual medical history and circumstances</b> require personalized professional evaluation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        &copy; 2025 CardioSense. All rights reserved.
+    </footer>
+</body>
+</html>
