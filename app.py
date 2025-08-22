@@ -11,20 +11,40 @@ model = pickle.load(open('model.pkl', 'rb'))
 def preprocess_input(data):
     # Example: data['thal'] is a string from the UI
     thal_map = {
+        'Normal (Good blood flow to heart)': 1,
+        'Fixed Defect (No blood flow in some part)': 2,
+        'Reversible Defect (Blood flow is observed but it is not normal)': 3,
         'Normal': 1,
         'Fixed Defect': 2,
         'Reversible Defect': 3
     }
     sex_map = {'Male': 1, 'Female': 0}
     cp_map = {
+        'Typical Angina (Classic heart chest pain)': 0,
+        'Atypical Angina (Unusual chest pain)': 1,
+        'Non-anginal Pain (Not related to heart)': 2,
+        'Asymptomatic (No chest pain)': 3,
         'Typical Angina': 0,
         'Atypical Angina': 1,
         'Non-anginal Pain': 2,
         'Asymptomatic': 3
     }
-    fbs_map = {'True': 1, 'False': 0}
-    exang_map = {'Yes': 1, 'No': 0}
+    fbs_map = {
+        'Yes (> 120 mg/dl - High)': 1,
+        'No (<= 120 mg/dl - Normal)': 0,
+        'True': 1,
+        'False': 0
+    }
+    exang_map = {
+        'Yes (Chest pain during exercise)': 1,
+        'No (No chest pain during exercise)': 0,
+        'Yes': 1,
+        'No': 0
+    }
     restecg_map = {
+        'Normal (Regular heart rhythm)': 0,
+        'ST-T Abnormality (Abnormal heart rhythm)': 1,
+        'Left Ventricular Hypertrophy (Thickened heart muscle)': 2,
         'Normal': 0,
         'ST-T Abnormality': 1,
         'Left Ventricular Hypertrophy': 2
@@ -34,7 +54,8 @@ def preprocess_input(data):
         'Flat': 1,
         'Downsloping': 2
     }
-    # Convert all fields
+    # Remove any extra text from 'ca' (Number of Major Vessels)
+    ca_val = str(data['ca']).split()[0]
     processed = [
         int(data['age']),
         sex_map[data['sex']],
@@ -47,7 +68,7 @@ def preprocess_input(data):
         exang_map[data['exang']],
         float(data['oldpeak']),
         slope_map[data['slope']],
-        int(data['ca']),
+        int(ca_val),
         thal_map[data['thal']]
     ]
     return np.array([processed])

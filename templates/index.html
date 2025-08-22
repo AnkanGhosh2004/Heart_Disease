@@ -135,7 +135,7 @@
         </div>
     </main>
     <script>
-    // This script handles the prediction form without removing any existing code
+    // This script handles the prediction form and displays the result in a styled box
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.querySelector('form');
         if (!form) return;
@@ -152,12 +152,13 @@
             });
             const result = await res.json();
             let msg = '';
+            let color = '';
             if (result.prediction.includes('No Heart Disease')) {
-                msg = 'You have no heart disease threat.';
+                msg = '<div style="border:2px solid #28a745; background:#e6ffe6; color:#155724; padding:18px; border-radius:10px; font-weight:bold;">You have no heart disease threat.</div>';
             } else {
-                msg = 'You have heart disease and should consult a doctor.';
+                msg = '<div style="border:2px solid #dc3545; background:#ffe6e6; color:#721c24; padding:18px; border-radius:10px; font-weight:bold;">You have heart disease and should consult a doctor.</div>';
             }
-            document.getElementById('result').innerText = msg;
+            document.getElementById('result').innerHTML = msg;
         });
     });
     </script>
