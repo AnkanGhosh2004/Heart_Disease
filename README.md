@@ -30,10 +30,11 @@ CardioSense is an intelligent web application that predicts the risk of heart di
 ![Contact Page](img/contact.png)
 
 ### 5. Prediction: Heart Disease Detected
-![Heart Disease Detected](img/heart_threat.png)
+![Heart Disease Detected](img/no%20heart%20threat.png)
 
 ### 6. Prediction: No Heart Disease
-![No Heart Disease](img/no%20heart%20threat.png)
+![No Heart Disease](img/heart_threat.png)
+
 
 ---
 
